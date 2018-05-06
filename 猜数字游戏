@@ -22,8 +22,7 @@ guessdict = {}
 
 while True:
     guess = str(input('请输入无重复数字的四位数：'))
-    if guess == 'Q':
-        print('退出游戏，答案是：'+str(number))
+    if guess == 'Q'        print('退出游戏，答案是：'+str(number))
         break
 
     if guess == number:
@@ -72,5 +71,3 @@ while True:
             continue
     else:
         continue
-
-    
