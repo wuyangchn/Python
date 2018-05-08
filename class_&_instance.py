@@ -104,5 +104,23 @@ class Pool:
 >>> pool.turtle.num
 4
 >>> 
+# 属性跟方法名冲突会发生覆盖
+>>> class A:
+	def test(self):
+		print('hello')
+
+		
+>>> a = A()
+>>> a.test()
+hello
+>>> a.test = 1  # 定义实例a的属性
+>>> a.test
+1
+>>> a.test()
+Traceback (most recent call last):
+  File "<pyshell#8>", line 1, in <module>
+    a.test()
+TypeError: 'int' object is not callable  # 实例a的属性a.test覆盖方法a.test()，报错
+>>> 
 #######################################################################
 # 疑惑——————————是不是定义类必须首先代__init__方法？
