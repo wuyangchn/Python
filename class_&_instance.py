@@ -56,7 +56,8 @@ class Student():
         self.name = name
         self.score = score
 
-    def print_score(self):
+
+	def print_score(self):
         print('%s:%s' % (self.name,self.score))
 
     def get_grade(self):
@@ -122,5 +123,23 @@ Traceback (most recent call last):
     a.test()
 TypeError: 'int' object is not callable  # 实例a的属性a.test覆盖方法a.test()，报错
 >>> 
+# 不定义属性，只有方法
+>>> class C:
+	def get_xy(self,x,y):
+		self.x = x
+		self.y = y
+	def print_xy(self):
+		print(self.x,self.y)
+
+		
+>>> c = C()
+>>> c.__dict__
+{}
+>>> c.get_xy(4,5)
+>>> c.__dict__
+{'x': 4, 'y': 5}
+>>> c.print_xy()
+4 5
+>>> C.__dict__
+mappingproxy({'__module__': '__main__', 'get_xy': <function C.get_xy at 0x0000015908381E18>, 'print_xy': <function C.print_xy at 0x0000015908D68D08>, '__dict__': <attribute '__dict__' of 'C' objects>, '__weakref__': <attribute '__weakref__' of 'C' objects>, '__doc__': None})
 #######################################################################
-# 疑惑——————————是不是定义类必须首先代__init__方法？
